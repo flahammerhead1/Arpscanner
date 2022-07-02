@@ -19,6 +19,14 @@ def checkforvalid_ipaddress():
     ipandsubnet = sys.argv[1].split("/")
     ip = ipandsubnet[0]
     ipsubnet = ipandsubnet[1]
+    
+    try:
+        int(ipsubnet)
+    
+    except:
+        print("invalid subnet mask " + str(ipsubnet))
+        exit(0)
+        
     if  int(ipsubnet) not in range(22, 33):
         print('Subnet Mask Range 22 to 32 only')
         exit(0)
